@@ -3,12 +3,15 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
+    console.log(req.query);
     db.Book.find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.send(dbModel))
+      .then(dbModel => res.text(dbModel))
+      .then(text => console.log(text))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
+    // ß;
     db.Book.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
