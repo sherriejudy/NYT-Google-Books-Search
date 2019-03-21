@@ -41,6 +41,9 @@ class Books extends Component {
             </Card.Body>
           </Card>
         </Row>
+        {this.state.books.map(data => (
+          <p>Title: {data.title}</p>
+        ))}
       </Container>
     );
   }
